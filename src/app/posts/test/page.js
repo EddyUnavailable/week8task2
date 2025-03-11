@@ -1,4 +1,3 @@
-import {test} from "vitest";
 import testStyles from "./test.module.css";
 
 export default async function testPage() {
