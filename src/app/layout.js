@@ -43,7 +43,7 @@ export default function RootLayout({children}) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className={rainbowTextStyles.rainbowText}>header</header>
+        <header className={rainbowTextStyles.rainbowText}>Header</header>
         <nav className={navStyles.nav}>
           <Link className={buttonGlowStyles.buttonGlow} href="/posts/1">
             Post 1
@@ -62,9 +62,7 @@ export default function RootLayout({children}) {
           </Link>
         </nav>
         {children}
-        <footer className={footerStyles.footer}>
-          Made by Eddy bits "borrowed" from many.
-        </footer>
+        <footer className={footerStyles.footer}>Made by Eddy</footer>
       </body>
     </html>
   );

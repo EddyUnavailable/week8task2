@@ -3,6 +3,7 @@ import pg from "pg";
 import {redirect} from "next/navigation";
 import {revalidatePath} from "next/cache";
 import {db} from "@/utils/utilities.js";
+import tareaStyles from "../../css/tarea.module.css";
 
 export default function NewPostPage() {
   async function handleSavePost(formData) {
@@ -32,14 +33,22 @@ export default function NewPostPage() {
   }
 
   return (
-    <form action={handleSavePost}>
-      <label htmlFor="username">userName</label>
-      <input id="username" name="username" type="text" />
-      <label htmlFor="comment">comment</label>
-      <textarea id="comment" name="comment" />
-      <button type="submit">Save</button>
-      <label htmlFor="name">Name</label>
-      <input id="name" name="name" type="text" />
-    </form>
+    <h3>
+      <form
+        className="flex-1 flex-row ml-6 mr-6 max-w-<500>"
+        action={handleSavePost}
+      >
+        {/* <label htmlFor="username">userName</label> */}
+        <input name="username" placeholder="User Name"></input>
+        <textarea
+          className={tareaStyles.tarea}
+          id="comment"
+          name="comment"
+          placeholder="Comment"
+        ></textarea>
+        <button type="submit" placeholder="Submit"></button>
+        <input name="name" type="text"></input>
+      </form>
+    </h3>
   );
 }

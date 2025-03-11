@@ -13,13 +13,12 @@ export default async function PostsPage() {
 
   return (
     <h3>
-      <div className="text-gray-200">Hi</div>
       <div className="flex gap-4 items-center">
         {posts.map((post) => (
-          <div className="w-250">
+          <div className="w-<300>">
             <p>{post.id}</p>
             <p>{post.name}</p>
-            <image src={post.url}></image>
+            <image src={post.url} height={250} width={250}></image>
             <p>{post.started}</p>
             <p>{post.ended}</p>
           </div>
