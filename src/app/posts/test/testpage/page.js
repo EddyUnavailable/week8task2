@@ -1,42 +1,40 @@
-// /app/posts/new/page.js
-import pg from "pg";
-import {redirect} from "next/navigation";
-import {revalidatePath} from "next/cache";
-import {db} from "@/utils/utilities.js";
+// // /app/posts/new/page.js
+// import Link from "next/link";
+// import pg from "pg";
+// import Image from "next/image";
+// import wrapperStyle from "../css/wrapper.module.css";
+// // import { db } from "@/utils/utilities.js";
 
-export default function NewPostPage() {
-  async function handleSavePost(formData) {
-    "use server"; // makes this function run _on the server_, as if by magic API.
-    console.log("Saving post to the database...");
+// export default async function PostsPage() {
+//   const db = new pg.Pool({
+//     connectionString: process.env.NEXT_POSTGRES,
+//   });
 
-    // connect to our database (make sure there is a DATABASE_URL in your .env.local)
-    // const db = new pg.Pool({connectionString: process.env.DATABASE_URL});
+//   const data = await db.query(`SELECT * FROM cartoons`);
+//   const posts = data.rows;
 
-    // get the form data from the formData object next provdides
-    const username = formData.get("username");
-    const comment = formData.get("comment");
+//   console.log(posts);
 
-    // insert the data into postgres
-    await db.query(`INSERT INTO comments (username, comment) VALUES ($1, $2)`, [
-      username,
-      comment,
-    ]);
-    console.log("Post saved!");
-
-    // revalidate the posts page, so it fetches the new data
-    revalidatePath("/posts");
-
-    // redirect the user to the posts page
-    redirect("/posts");
-  }
-
-  return (
-    <form action={handleSavePost}>
-      <label htmlFor="username">Name</label>
-      <input id="username" name="username" type="text" />
-      <label htmlFor="comment">comment</label>
-      <textarea id="comment" name="comment" />
-      <button type="submit">Save</button>
-    </form>
-  );
-}
+//   return (
+//     <div>
+//       <div className={wrapperStyle.grid}>
+//         <div className={wrapperStyle.wrapper}>
+//           <h2>This is a post route</h2>
+//           {posts.map((post) => (
+//             <div key={post.id}>
+//               <Link href={`/posts/${post.id}`}>
+//                 <p>Name:{post.name}</p>
+//                 <Image src={post.url} height={250} width={250} alt="eddy" />
+//                 <p>Ran From:{post.started}</p>
+//                 <p>to:{post.ended}</p>
+//               </Link>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+// {
+//   /* <Image src={post.url} height={250} width={250} alt="eddy" /> */
+// }

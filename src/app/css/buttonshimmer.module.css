@@ -1,0 +1,76 @@
+.button {
+  height: 40px;
+  width: 50px;
+  border-left: 7px #505050;
+  border-bottom: 7px rgb(100, 100, 100);
+  border-right: 2px black;
+  border-top: 2px black;
+  border-radius: 20%;
+  border-style: solid;
+  background: linear-gradient(-45deg, #484848 40%, #666666 50%, #484848 80%);
+  background-size: 500%;
+  background-position-x: 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.button:hover {
+  height: 40px;
+  width: 50px;
+  border-left: 7px rgb(175, 0, 0);
+  border-bottom: 7px rgb(150, 0, 0);
+  border-right: 2px rgb(100, 0, 0);
+  border-top: 2px rgb(100, 0, 0);
+  border-radius: 20%;
+  border-style: solid;
+  background: linear-gradient(
+    -45deg,
+    rgb(200, 0, 0) 40%,
+    rgb(245, 0, 0) 50%,
+    rgb(200, 0, 0) 80%
+  );
+  background-size: 500%;
+  background-position-x: 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+/* @keyframes shimmer {
+  21%,
+  100% {
+    background-position-x: 500%;
+  }
+  20% {
+    background-position-x: 400%;
+  }
+  15% {
+    background-position-x: 300%;
+  }
+  10% {
+    background-position-x: 200%;
+  }
+  5% {
+    background-position-x: 100%;
+  }
+  0% {
+    background-position-x: 0%;
+  }
+} */
+/* @keyframes move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+   Finish changes by here */
+/* 20% {
+    transform: translate(200px, 0);
+  }
+
+   Between 20% and 100%, nothing changes */
+/* 100% {
+    transform: translate(200px, 0);
+  }
+}  */

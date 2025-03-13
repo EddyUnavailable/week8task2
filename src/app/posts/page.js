@@ -1,5 +1,8 @@
+// /app/posts/new/page.js
+import Link from "next/link";
 import pg from "pg";
 import Image from "next/image";
+import wrapperStyle from "../css/wrapper.module.css";
 // import { db } from "@/utils/utilities.js";
 
 export default async function PostsPage() {
@@ -7,23 +10,31 @@ export default async function PostsPage() {
     connectionString: process.env.NEXT_POSTGRES,
   });
 
-  const posts = (await db.query(`SELECT * FROM cartoons`)).rows;
+  const data = await db.query(`SELECT * FROM cartoons`);
+  const posts = data.rows;
 
   console.log(posts);
 
   return (
-    <h3>
-      <div className="flex gap-4 items-center">
-        {posts.map((post) => (
-          <div className="w-<300>">
-            <p>{post.id}</p>
-            <p>{post.name}</p>
-            <image src={post.url} height={250} width={250}></image>
-            <p>{post.started}</p>
-            <p>{post.ended}</p>
-          </div>
-        ))}
+    <div>
+      <div className={wrapperStyle.grid}>
+        <div className={wrapperStyle.wrapper}>
+          <h2>This is a post route</h2>
+          {posts.map((post) => (
+            <div key={post.id}>
+              <Link href={`/posts/${post.id}`}>
+                <p>Name:{post.name}</p>
+                <Image src={post.url} height={250} width={250} alt="eddy" />
+                <p>Ran From:{post.started}</p>
+                <p>to:{post.ended}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </h3>
+    </div>
   );
+}
+{
+  /* <Image src={post.url} height={250} width={250} alt="eddy" /> */
 }

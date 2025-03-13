@@ -5,8 +5,29 @@
   width: 100%;
   align-content: center;
   text-align: center;
-  background: rgb(22, 168, 49);
   font-size: 20px;
   font-weight: 800;
   color: blue;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 8px,
+    rgb(0, 175, 50) 10%,
+    rgba(255, 0, 0, 1) 11%,
+    rgba(155, 0, 0, 1) 13%,
+    rgba(255, 0, 0, 1) 14%,
+    rgb(0, 175, 50) 15%,
+    rgb(0, 175, 50) 20%,
+    rgb(0, 175, 50) 30%,
+    rgb(0, 175, 50) 35%,
+    rgb(0, 175, 50) 50%,
+    rgb(0, 175, 50) 65%,
+    rgb(0, 175, 50) 70%,
+    rgb(0, 175, 50) 80%,
+    rgb(0, 175, 50) 85%,
+    rgba(255, 0, 0, 1) 86%,
+    rgba(155, 0, 0, 1) 87%,
+    rgba(255, 0, 0, 1) 89%,
+    rgb(0, 175, 50, 1) 90%,
+    rgba(255, 255, 255, 0) 92%
+  );
 }

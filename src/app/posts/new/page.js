@@ -4,6 +4,7 @@ import {redirect} from "next/navigation";
 import {revalidatePath} from "next/cache";
 import {db} from "@/utils/utilities.js";
 import tareaStyles from "../../css/tarea.module.css";
+import buttonshimmerStyles from "../../css/buttonshimmer.module.css";
 
 export default function NewPostPage() {
   async function handleSavePost(formData) {
@@ -38,7 +39,7 @@ export default function NewPostPage() {
         className="flex-1 flex-row ml-6 mr-6 max-w-<500>"
         action={handleSavePost}
       >
-        {/* <label htmlFor="username">userName</label> */}
+        <label htmlFor="username"></label>
         <input name="username" placeholder="User Name"></input>
         <textarea
           className={tareaStyles.tarea}
@@ -46,7 +47,13 @@ export default function NewPostPage() {
           name="comment"
           placeholder="Comment"
         ></textarea>
-        <button type="submit" placeholder="Submit"></button>
+        <button
+          className={buttonshimmerStyles.button}
+          type="submit"
+          placeholder="Submit"
+        >
+          OK
+        </button>
         <input name="name" type="text"></input>
       </form>
     </h3>
